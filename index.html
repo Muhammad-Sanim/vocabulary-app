@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>English Janala</title>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap");
+
+    .main-font {
+      font-family: "Hind Siliguri", sans-serif;
+    }
+  </style>
+</head>
+
+<body class="main-font bg-[#F8F8F8]">
+  <!-- Navbar Section -->
+  <nav>
+    <div class="navbar shadow-sm w-11/12 mx-auto">
+      <div class="flex-1">
+        <a class="btn btn-ghost text-xl">English<span><img src="assets/logo.png" alt="" /></span>জানালা</a>
+      </div>
+      <div class="flex-none">
+        <ul class="menu menu-horizontal px-1 gap-4 text-[#422AD5]">
+          <li>
+            <button  onclick="faq()"
+              class="btn border-[#422AD5] border-2 text-[#422AD5] font-semibold hover:bg-sky-500 hover:text-white">
+              <img src="assets/fa-circle-question.png" />FAQ
+            </button>
+          </li>
+          <li>
+            <button onclick="learn()" class="btn border-[#422AD5] border-2 text-[#422AD5] font-semibold hover:bg-sky-500 hover:text-white">
+              <img src="assets/fa-book-open.png" />Learn
+            </button>
+          </li>
+          <li>
+            <button onclick="logout()" class="btn border-[#422AD5] border-2 text-[#422AD5] font-semibold hover:bg-sky-500 hover:text-white">
+              <img src="assets/fa-arrow-right-from-bracket.png" />Logout
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Body Section -->
+  <main class="w-11/12 mx-auto">
+    <!-- Hero Section -->
+    <div id="banner" class="container mx-auto flex justify-between items-center py-10">
+      <div class="max-w-[727px]">
+        <h1 class="text-4xl font-bold">
+          <span class="text-[#00BCFF]">English</span> is Easy!!
+        </h1>
+        <p>
+          আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা
+          আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons আপনাকে নিয়ে যাবে
+          অন্য একটি Level এ
+        </p>
+        <div class="card w-full max-w-sm shrink-0">
+          <div class="card-body">
+            <fieldset class="fieldset">
+              <label class="fieldset-label">Email</label>
+              <input id="username" type="email" class="input" placeholder="Email" />
+              <label class="fieldset-label">Password</label>
+              <input id="password" type="password" class="input" placeholder="Password" />
+              <div><a class="link link-hover">Forgot password?</a></div>
+              <button id="login-btn" class="btn bg-[#422AD5] text-white">Login</button>
+            </fieldset>
+          </div>
+        </div>
+      </div>
+      <div>
+        <img src="assets/hero-student.png" alt="" />
+      </div>
+    </div>
+
+    <!-- Vocabulary Section -->
+    <section>
+      <h2 class="text-4xl text-center font-bold"><span class="text-[#00BCFF]">Let's</span> Learn Vocabularies</h2>
+      <div id="level-container" class="flex justify-center gap-5 my-10"></div>
+      <div id="neutral" class="my-10 text-center">
+        <p class="text-[#79716B] my-3">আপনি এখনো কোন Lesson Select করেন নি</p>
+        <h2 class="text-4xl font-medium">একটি Lesson Select করুন।</h2>
+      </div>
+    </section>
+
+    <section class="mt-10">
+      <div id="words-container" class="grid grid-cols-3 gap-8 mx-auto">
+        
+      </div>
+
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq-section" class="my-20">
+      <h2 class="text-4xl text-center font-bold"><span class="text-[#00BCFF]">Frequently</span> LAsked Questions</h2>
+
+      <div class="collapse collapse-plus bg-base-100 border border-base-300">
+        <input type="radio" name="my-accordion-3" checked="checked" />
+        <div class="collapse-title font-semibold">What is the difference between var, let and const?</div>
+        <div class="collapse-content text-sm">Answering...</div>
+      </div>
+      <div class="collapse collapse-plus bg-base-100 border border-base-300">
+        <input type="radio" name="my-accordion-3" />
+        <div class="collapse-title font-semibold">What is the difference between map(), forEach(), and filter()?</div>
+        <div class="collapse-content text-sm">Answering...</div>
+      </div>
+      <div class="collapse collapse-plus bg-base-100 border border-base-300">
+        <input type="radio" name="my-accordion-3" />
+        <div class="collapse-title font-semibold">Explain arrow functions and how they are different from regular functions?</div>
+        <div class="collapse-content text-sm">Answering...</div>
+      </div>
+      <div class="collapse collapse-plus bg-base-100 border border-base-300">
+        <input type="radio" name="my-accordion-3" />
+        <div class="collapse-title font-semibold">How JavaScript Promises work?</div>
+        <div class="collapse-content text-sm">Answering...</div>
+      </div>
+      <div class="collapse collapse-plus bg-base-100 border border-base-300">
+        <input type="radio" name="my-accordion-3" />
+        <div class="collapse-title font-semibold">How closures work in JavaScript?</div>
+        <div class="collapse-content text-sm">Answering...</div>
+      </div>
+
+
+    </section>
+
+  </main>
+
+  <!-- Footer Section -->
+    <footer class="footer sm:footer-horizontal flex justify-between w-11/12 mx-auto p-10">
+      <aside>
+        <div class="flex-1">
+          <a class="btn btn-ghost text-xl">English<span><img src="assets/logo.png" alt="" /></span>জানালা</a>
+        </div>
+        <p class="text-xl font-medium">ইংরেজি শিখুন সহজে</p>
+        <p>Providing ED-Tech Applications since 2025</p>
+      </aside>
+      <nav class="items-center justify-center">
+        <h6 class="footer-title">FOLLOW US</h6>
+        <div class="grid grid-flow-col gap-4">
+          <a>
+            <img src="assets/fb-thumb.png" alt="">
+          </a>
+          <a>
+            <img src="assets/youtube-thumb.png" alt="">
+          </a>
+          <a>
+            <img src="assets/instagram-thumb.png" alt="">
+          </a>
+          <a>
+            <img src="assets/github-thumb.png" alt="">
+          </a>
+        </div>
+      </nav>
+    </footer>
+
+
+
+  <!-- Scripts are here -->
+  <script src="scripts/script.js"></script>
+</body>
+
+</html>
