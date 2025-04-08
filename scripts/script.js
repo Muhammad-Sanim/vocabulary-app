@@ -2,39 +2,31 @@ const faq = () => {
   document.getElementById("faq-section").scrollIntoView({ behavior: "smooth" });
 };
 
-
 const learn = () => {
-  const vocabularySection = document.querySelector("section:nth-of-type(1)"); // The vocabulary section
+  const vocabularySection = document.querySelector("section");
   vocabularySection.scrollIntoView({ behavior: "smooth" });
 };
 
 const logout = () => {
-  // Handle logout functionality - for now just reload the page
   location.reload();
 };
 
 document.addEventListener("DOMContentLoaded", function () {
-    // Select all sections except the banner
-    const sections = document.querySelectorAll("section:not(#banner)");
+    const sections = [...document.querySelectorAll('section')]
+      .filter(section => section.id !== 'banner');
     const loginButton = document.getElementById("login-btn");
     const banner = document.getElementById("banner");
   
-    // Hide all sections initially
     sections.forEach((section) => {
       section.classList.add("hidden");
     });
   
-    // Add event listener for login button
     loginButton.addEventListener("click", function () {
-      // Simulating a login process (you can replace this with real authentication)
       const username = document.getElementById("username").value;
       const password = document.getElementById("password").value;
   
       if (username && password) {
-        // Hide the banner section
         banner.classList.add("hidden");
-  
-        // Show other sections
         sections.forEach((section) => {
           section.classList.remove("hidden");
         });
@@ -50,8 +42,6 @@ const loadLevels = async () => {
     const data = await response.json();
     showLevels(data.data);
 }
-
-document.getElementById('neutral').classList.remove('hidden');
 
 const showLevels = (levels) => {
     levels.forEach((level) => {
@@ -72,23 +62,21 @@ const loadWords = async (levelName) => {
 
 const showWords = (words) => {
     const wordsContainer = document.getElementById('words-container');
-    const noWords = document.getElementById('no-words');
     const neutralMessage = document.getElementById('neutral');
-
-    wordsContainer.innerHTML = '';
 
     neutralMessage.classList.add('hidden');
 
-    if (words.length == 0) {
+    wordsContainer.innerHTML = '';
+
+    if (!words || words.length === 0) {
       
         wordsContainer.innerHTML = `
-        <div id="no-words" class="hidden col-span-full flex flex-col items-center text-center my-20">
+        <div class=" col-span-full flex flex-col items-center text-center my-20">
             <img class="w-24" src="assets/alert-error.png" alt="">
             <p class="text-[#79716B] my-4">এই Lesson এ এখনো কোন Vocabulary যুক্ত করা হয়নি।</p>
             <h2 class="text-4xl font-medium">নেক্সট Lesson এ যান</h2>
         </div>
         `;
-        noWords.classList.remove('hidden');
     } else {
       words.forEach((word) => {
           const div = document.createElement("div");
@@ -105,7 +93,5 @@ const showWords = (words) => {
       });
   }
 };  
-
-loadWords();
 
 loadLevels();
